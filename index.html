@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">Heading
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Aplicacion CRUD</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">APLICACION CRUD</a>
+          </nav>
+    </header>
+
+    <div class="container text-center div_local">
+        <h2>APLICACION CRUD</h2>
+
+        <div class="row">
+            <h3>AGREGAR</h3>
+            <div class="offset-md-3 col-md-6">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="" id="id">
+                        <input type="text" class="form-control" name="" id="nombreInput">
+                        <input type="text" class="form-control"  name="" id="apellidoLocal">
+                        <input type="text" class="form-control"  name="" id="ocupacionLocal">
+                        <input type="text" class="form-control" name="" id="sueldoLocal">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary btn-block mb-2" id="btnRegistrar">Agregar</button>
+                    <button type="button" class="btn btn-danger btn-block mb-2" onclick="limpiarStorage()">Limpiar</button>
+                    <!-- <button type="button" class="btn btn-primary btn-block mb-2" onclick="actualizarLista()">Actualizar</button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <table id="tblInfo">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Ocupacion</th>
+            <th>Sueldo</th>
+            <th></th>
+            
+      
+           </tr>
+         </thead>
+         <tbody >
+
+         </tbody>
+       </table> 
+
+
+    <footer class="mastfoot mt-auto">
+        <div class="mt-5 pt-5 pb-5 footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-5 col-xs-12 about-company">
+                  <h2>Heading</h2>
+                  <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
+                  <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
+                </div>
+                <div class="col-lg-3 col-xs-12 links">
+                  <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+                    <ul class="m-0 p-0">
+                      <li>- <a href="#">Lorem ipsum</a></li>
+                      <li>- <a href="#">Nam mauris velit</a></li>
+                      <li>- <a href="#">Etiam vitae mauris</a></li>
+                      <li>- <a href="#">Fusce scelerisque</a></li>
+                      <li>- <a href="#">Sed faucibus</a></li>
+                      <li>- <a href="#">Mauris efficitur nulla</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-xs-12 location">
+                  <h4 class="mt-lg-0 mt-sm-4">Location</h4>
+                  <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
+                  <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
+                  <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col copyright">
+                  <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
+                </div>
+              </div>
+            </div>
+            </div>
+      </footer>    
+      <script src="assets/js/main.js"></script>
+<script src="assets/js/mostrar.js"></script>
+</body>
+
+</html>
