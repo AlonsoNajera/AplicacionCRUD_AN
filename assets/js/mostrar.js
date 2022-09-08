@@ -8,6 +8,8 @@ const ocupacionInput = document.getElementById("txtocupacionLocal");
 const sueldoInput = document.getElementById("txtsueldoLocal");
 
 
+
+
 function save(){
     const id = IDInput.value;
     const nombre = nombreInput.value;
@@ -62,10 +64,22 @@ tbody.innerHTML='';
 
            
 
-            var inputEliminar=document.createElement('input');
+            var inputEliminar=document.createElement('button');
+            
+            inputEliminar.textContent="ELIMINAR";
+        
             inputEliminar.value=list[i].id;
 
             Eliminar.appendChild(inputEliminar);
+
+            inputEliminar.addEventListener("click", (event)=> {
+                let transactionrow=event.target.parentNode.parentNode;
+                let transactionid=transactionrow.getAttribute(inputEliminar);
+
+                transactionrow.remove();
+                localStorage.removeItem(transactionid);
+                
+            })
 
 
     tbody.appendChild(row);
@@ -73,3 +87,11 @@ tbody.innerHTML='';
     }
 
 }
+
+
+function limpiarStorage() {
+    localStorage.clear();
+    friendList = [];
+    drawFriendsTable();
+}
+

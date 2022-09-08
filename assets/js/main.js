@@ -13,6 +13,7 @@ function addFriend(pid,pnom,pape,pocup,psueldo)
         sueldo:psueldo
     };
     console.log(newFriend);
+   
     friendList.push(newFriend);
     jsonStoreList(friendList);
 
@@ -30,7 +31,7 @@ function getFriendList() {
    else {
     friendList=JSON.parse(storedList);
    }
-   
+
     return friendList;
 }
 
