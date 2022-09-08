@@ -1,88 +1,75 @@
+document.querySelector('#btnRegistrar').addEventListener('click',save);
+drawFriendsTable();
 
-llenartabla();
-
-function llenartabla(){
-    var tbody=document.querySelector('#tblInfo tbody');
-
-    tbody.innerHTML='';
-
-    var 
-        aid=JSON.parse(localStorage.getItem('aid_info')),
-        anombre=JSON.parse(localStorage.getItem('anombreInput_info')),
-        aapellido=JSON.parse(localStorage.getItem('aapellidoLocal_info')),
-        aocupacion=JSON.parse(localStorage.getItem('aocupacionLocal_info')),
-        asueldo=JSON.parse(localStorage.getItem('asueldoLocal_info'));
-
-    var ncantidad=aid.length;
-
-    for (var i=0; i<ncantidad;i++)
-    {
-        var fila=document.createElement('tr');
-
-        var celdaid=document.createElement('td'),
-            celdanom=document.createElement('td'),
-            celdaape=document.createElement('td'),
-            celdaocup=document.createElement('td'),
-            celdasuel=document.createElement('td'),
-            celdaModificar=document.createElement('td'),
-            enlaceModificar=document.createElement('a');
-
-           
+const IDInput = document.getElementById("txtid");
+const nombreInput = document.getElementById("txtnombreInput");
+const apellidoInput = document.getElementById("txtapellidoLocal");
+const ocupacionInput = document.getElementById("txtocupacionLocal");
+const sueldoInput = document.getElementById("txtsueldoLocal");
 
 
-   
-
-        var  nodotextid=document.createTextNode(aid[i]),
-        nodotextonom=document.createTextNode(anombre[i]),
-        nodotextoape=document.createTextNode(aapellido[i]),
-        nodotextoocup=document.createTextNode(aocupacion[i]),
-        nodotextosueldo=document.createTextNode(asueldo[i]),
-        nodotextomodificar=document.createElement("button");
-
-        nodotextomodificar.textContent="ELIMINAR";
-
-       
-        nodotextomodificar.addEventListener("click", (event) => {
-
-            let eliminar =event.target.parentNode.parentNode.parentNode;
-            console.log(eliminar)
-            eliminar.remove();
-            localStorage.setItem('aid_info',JSON.stringify(aid));
-    localStorage.setItem('anombreInput_info',JSON.stringify(anombreInput));
-    localStorage.setItem('aapellidoLocal_info',JSON.stringify(aapellidoLocal));
-    localStorage.setItem('aocupacionLocal_info',JSON.stringify(aocupacionLocal));
-    localStorage.setItem('asueldoLocal_info',JSON.stringify(asueldoLocal));
-           
-        })
+function save(){
+    const id = IDInput.value;
+    const nombre = nombreInput.value;
+    const apellido = apellidoInput.value;
+    const ocupacion = ocupacionInput.value;
+    const sueldo = sueldoInput.value;
 
 
-        celdaid.appendChild(nodotextid);
-        celdanom.appendChild(nodotextonom);
-        celdaape.appendChild(nodotextoape);
-        celdaocup.appendChild(nodotextoocup);
-        celdasuel.appendChild(nodotextosueldo);
-        enlaceModificar.appendChild(nodotextomodificar);
-        celdaModificar.appendChild(enlaceModificar);
+    var sID=document.querySelector('#txtid').value;
+     snombre=document.querySelector('#txtnombreInput').value;
+     sapellido=document.querySelector('#txtapellidoLocal').value;
+     socupacion=document.querySelector('#txtocupacionLocal').value;
+     ssueldo=document.querySelector('#txtsueldoLocal').value;
 
+    addFriend (sID,snombre,sapellido,socupacion,ssueldo);
 
-       
+  
 
-        fila.appendChild(celdaid);
-        fila.appendChild(celdanom);
-        fila.appendChild(celdaape);
-        fila.appendChild(celdaocup);
-        fila.appendChild(celdasuel);
-        fila.appendChild(celdaModificar);
+    IDInput.value = "";
+    nombreInput.value = "";
+    apellidoInput.value = "";
+    ocupacionInput.value = "";
+    sueldoInput.value = "";
 
-        
-        
-
-tbody.appendChild(fila);
-
-
-    }
-
-   
+    drawFriendsTable();
 
 }
 
+
+function drawFriendsTable() {
+
+var list=getFriendList(),
+    tbody=document.querySelector('#tblInfo tbody');
+    
+tbody.innerHTML='';
+
+    for (var i=0; i<list.length; i++){
+        var row=tbody.insertRow(i);
+        var idcell=row.insertCell(0),
+            nombrecell=row.insertCell(1),
+            apellidocell=row.insertCell(2),
+            ocupacioncell=row.insertCell(3),
+            sueldocell=row.insertCell(4),
+            Eliminar=row.insertCell(5);
+
+
+            idcell.innerHTML=list[i].id;
+            nombrecell.innerHTML=list[i].name;
+            apellidocell.innerHTML=list[i].apellido;
+            ocupacioncell.innerHTML=list[i].ocupacion;
+            sueldocell.innerHTML=list[i].sueldo;
+
+           
+
+            var inputEliminar=document.createElement('input');
+            inputEliminar.value=list[i].id;
+
+            Eliminar.appendChild(inputEliminar);
+
+
+    tbody.appendChild(row);
+
+    }
+
+}
